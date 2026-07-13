@@ -86,13 +86,67 @@ interface FastEthernet0/0.2   → VLAN 2  → 2000:2001:112::2/64  (LAN local)
 interface FastEthernet0/0.12  → VLAN 12 → 2000:12XX:112::2/64  (lien R1-R2)
 interface FastEthernet0/0.23  → VLAN 23 → 2000:23XX:112::2/64  (lien R2-R3)
 ```
+```
+Switch#show vlan brief 
 
-> 📸 *[Insérer ici une capture de `show ipv6 ospf neighbor` sur un routeur, montrant toutes les adjacences]*
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Gig1/0/4, Gig1/0/5, Gig1/0/6, Gig1/0/11
+                                                Gig1/0/12, Gig1/0/13, Gig1/0/14, Gig1/0/15
+                                                Gig1/0/16, Gig1/0/17, Gig1/0/18, Gig1/0/19
+                                                Gig1/0/20, Gig1/0/21, Gig1/0/22, Gig1/1/1
+                                                Gig1/1/2, Gig1/1/3, Gig1/1/4
+2    LAN_VLAN2                        active    
+3    LAN_VLAN3                        active    
+4    LAN_VLAN4                        active    Gig1/0/7, Gig1/0/9
+5    LAN_VLAN5                        active    Gig1/0/8, Gig1/0/10
+6    LAN_VLAN6                        active    
+12   Link_R1_R2                       active    
+23   Link_R2_R3                       active    
+34   Link_R3_R4                       active    
+45   Link_R4_R5                       active    
+56   Link_R5_R6                       active    
+1002 fddi-default                     active    
+1003 token-ring-default               active    
+1004 fddinet-default                  active    
+1005 trnet-default                    active
+```
 
-> 📸 *[Insérer ici une capture d'un ping réussi entre PC1 et PC6 (hôtes les plus éloignés)]*
+Ping du PC1 au PC6
 
-> 📸 *[Insérer ici une capture de `tracert` de PC1 vers PC6 montrant le chemin complet hop par hop]*
+```
+C:\>ping 2000:6001:112::100
 
+Pinging 2000:6001:112::100 with 32 bytes of data:
+
+Reply from 2000:6001:112::100: bytes=32 time=10ms TTL=122
+Reply from 2000:6001:112::100: bytes=32 time=33ms TTL=122
+Reply from 2000:6001:112::100: bytes=32 time<1ms TTL=122
+Reply from 2000:6001:112::100: bytes=32 time=1ms TTL=122
+
+Ping statistics for 2000:6001:112::100:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 33ms, Average = 11ms
+```
+
+TracerT du PC1 au PC6
+
+```
+C:\>tracert 2000:6001:112::100
+
+Tracing route to 2000:6001:112::100 over a maximum of 30 hops: 
+
+  1   0 ms      0 ms      0 ms      2000:1001:112::1
+  2   0 ms      0 ms      0 ms      2000:102:112::2
+  3   1 ms      0 ms      0 ms      2000:203:112::3
+  4   0 ms      10 ms     10 ms     2000:304:112::4
+  5   10 ms     10 ms     6 ms      2000:405:112::5
+  6   0 ms      0 ms      10 ms     2000:506:112::6
+  7   10 ms     10 ms     10 ms     2000:6001:112::100
+
+Trace complete.
+```
 ---
 
 ## Commutation — Spanning Tree
