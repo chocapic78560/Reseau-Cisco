@@ -1,140 +1,155 @@
-<svg width="100%" viewBox="0 0 680 580" xmlns="http://www.w3.org/2000/svg" role="img">
-  <title>Topologie réseau</title>
-  <desc>4 switches multicouche, 6 routeurs, 6 serveurs, 6 PCs</desc>
+<svg viewBox="0 0 1000 720" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+
+  <!-- ================= DEFS : ICÔNES ================= -->
   <defs>
-    <style>
-      .th { font-family: sans-serif; font-size: 11px; font-weight: 600; fill: #3C3489; }
-      .ts { font-family: sans-serif; font-size: 9px; fill: #534AB7; }
-      .tr { font-family: sans-serif; font-size: 11px; font-weight: 600; fill: #085041; }
-      .tsv { font-family: sans-serif; font-size: 11px; font-weight: 600; fill: #712B13; }
-      .tpc { font-family: sans-serif; font-size: 11px; font-weight: 600; fill: #444441; }
-      .leg { font-family: sans-serif; font-size: 11px; fill: #444441; }
-      .title { font-family: sans-serif; font-size: 13px; font-weight: 600; fill: #2C2C2A; }
-      .sub { font-family: sans-serif; font-size: 10px; fill: #888780; }
-    </style>
+    <!-- Routeur -->
+    <g id="icon-router">
+      <rect x="-22" y="-14" width="44" height="28" rx="6" fill="#2F6FB3"/>
+      <path d="M -13 -2 a 9 9 0 1 1 9 9" stroke="#EAF2FB" stroke-width="2.2" fill="none"/>
+      <polygon points="-4,7 -9,3 -9,11" fill="#EAF2FB"/>
+      <path d="M 13 2 a 9 9 0 1 1 -9 -9" stroke="#EAF2FB" stroke-width="2.2" fill="none"/>
+      <polygon points="4,-7 9,-3 9,-11" fill="#EAF2FB"/>
+    </g>
+
+    <!-- Switch multicouche -->
+    <g id="icon-switch">
+      <rect x="-28" y="-16" width="56" height="32" rx="6" fill="#1F5C99"/>
+      <g stroke="#8FD16B" stroke-width="2.6" stroke-linecap="round">
+        <line x1="-20" y1="-9" x2="-13" y2="-2"/>
+        <line x1="-13" y1="-9" x2="-6" y2="-2"/>
+        <line x1="-6" y1="-9" x2="1" y2="-2"/>
+        <line x1="1" y1="-9" x2="8" y2="-2"/>
+        <line x1="8" y1="-9" x2="15" y2="-2"/>
+        <line x1="15" y1="-9" x2="22" y2="-2"/>
+        <line x1="-20" y1="9" x2="-13" y2="2"/>
+        <line x1="-13" y1="9" x2="-6" y2="2"/>
+        <line x1="-6" y1="9" x2="1" y2="2"/>
+        <line x1="1" y1="9" x2="8" y2="2"/>
+        <line x1="8" y1="9" x2="15" y2="2"/>
+        <line x1="15" y1="9" x2="22" y2="2"/>
+      </g>
+    </g>
+
+    <!-- Serveur -->
+    <g id="icon-server">
+      <rect x="-14" y="-22" width="28" height="44" rx="3" fill="#3C7A9C"/>
+      <line x1="-9" y1="-14" x2="9" y2="-14" stroke="#CFEAF7" stroke-width="2"/>
+      <line x1="-9" y1="-6" x2="9" y2="-6" stroke="#CFEAF7" stroke-width="2"/>
+      <line x1="-9" y1="2" x2="9" y2="2" stroke="#CFEAF7" stroke-width="2"/>
+      <circle cx="8" cy="12" r="2" fill="#8FE38F"/>
+    </g>
+
+    <!-- PC -->
+    <g id="icon-pc">
+      <rect x="-15" y="-13" width="30" height="20" rx="2" fill="#4A90D9"/>
+      <rect x="-12" y="-10" width="24" height="14" fill="#DCEEFB"/>
+      <rect x="-4" y="7" width="8" height="4" fill="#7A7A7A"/>
+      <rect x="-9" y="11" width="18" height="3" rx="1" fill="#7A7A7A"/>
+    </g>
+
+    <marker id="dot" markerWidth="6" markerHeight="6" refX="3" refY="3">
+      <circle cx="3" cy="3" r="2.2" fill="#8FD16B"/>
+    </marker>
   </defs>
 
-  <!-- Fond carte -->
-  <rect x="0" y="0" width="680" height="580" fill="#F8F7F3" rx="0"/>
+  <style>
+    .lnk   { stroke:#9AA5B1; stroke-width:2; }
+    .core  { stroke:#2F6FB3; stroke-width:4; }
+    .lbl   { font-size:12px; fill:#2b2b2b; }
+    .lblb  { font-size:12px; fill:#2b2b2b; font-weight:600; }
+    .tag   { font-size:10.5px; fill:#5a6472; }
+  </style>
 
-  <!-- Backbone links entre les 4 switches -->
-  <line x1="280" y1="210" x2="390" y2="210" stroke="#534AB7" stroke-width="2.5" stroke-dasharray="6 3"/>
-  <line x1="280" y1="370" x2="390" y2="370" stroke="#534AB7" stroke-width="2.5" stroke-dasharray="6 3"/>
-  <line x1="235" y1="232" x2="235" y2="348" stroke="#534AB7" stroke-width="2.5" stroke-dasharray="6 3"/>
-  <line x1="435" y1="232" x2="435" y2="348" stroke="#534AB7" stroke-width="2.5" stroke-dasharray="6 3"/>
+  <rect x="0" y="0" width="1000" height="720" fill="#ffffff"/>
+  <text x="500" y="30" text-anchor="middle" font-size="20" font-weight="700" fill="#1F3B57">Topologie réseau</text>
 
-  <!-- Liens SW1 : R1, R2, PC3, S3 -->
-  <line x1="190" y1="210" x2="120" y2="210" stroke="#B4B2A9" stroke-width="1.2"/>
-  <line x1="210" y1="192" x2="148" y2="110" stroke="#B4B2A9" stroke-width="1.2"/>
-  <line x1="250" y1="192" x2="230" y2="108" stroke="#B4B2A9" stroke-width="1.2"/>
-  <line x1="265" y1="192" x2="302" y2="108" stroke="#B4B2A9" stroke-width="1.2"/>
+  <!-- ================= LIENS CŒUR DE RÉSEAU (switches) ================= -->
+  <line class="core" x1="330" y1="230" x2="640" y2="230"/>
+  <line class="core" x1="330" y1="480" x2="640" y2="480"/>
+  <line class="core" x1="330" y1="255" x2="330" y2="455"/>
+  <line class="core" x1="640" y1="255" x2="640" y2="455"/>
 
-  <!-- Liens SW2 : R3, PC1, S2, S1 -->
-  <line x1="480" y1="192" x2="460" y2="108" stroke="#B4B2A9" stroke-width="1.2"/>
-  <line x1="460" y1="192" x2="390" y2="108" stroke="#B4B2A9" stroke-width="1.2"/>
-  <line x1="505" y1="210" x2="540" y2="170" stroke="#B4B2A9" stroke-width="1.2"/>
-  <line x1="505" y1="228" x2="540" y2="270" stroke="#B4B2A9" stroke-width="1.2"/>
-  <line x1="480" y1="200" x2="600" y2="123" stroke="#B4B2A9" stroke-width="1.2"/>
+  <!-- ================= SWITCHES ================= -->
+  <g transform="translate(330,230)">
+    <use href="#icon-switch"/>
+    <text class="lblb" x="0" y="34" text-anchor="middle">Multilayer Switch 1</text>
+  </g>
+  <g transform="translate(640,230)">
+    <use href="#icon-switch"/>
+    <text class="lblb" x="0" y="34" text-anchor="middle">Multilayer Switch 2</text>
+  </g>
+  <g transform="translate(330,480)">
+    <use href="#icon-switch"/>
+    <text class="lblb" x="0" y="34" text-anchor="middle">Multilayer Switch 3</text>
+  </g>
+  <g transform="translate(640,480)">
+    <use href="#icon-switch"/>
+    <text class="lblb" x="0" y="34" text-anchor="middle">Multilayer Switch 4</text>
+  </g>
 
-  <!-- Liens SW3 : R4, R5, PC6, S6 -->
-  <line x1="190" y1="370" x2="120" y2="370" stroke="#B4B2A9" stroke-width="1.2"/>
-  <line x1="205" y1="388" x2="170" y2="460" stroke="#B4B2A9" stroke-width="1.2"/>
-  <line x1="255" y1="392" x2="302" y2="460" stroke="#B4B2A9" stroke-width="1.2"/>
-  <line x1="235" y1="348" x2="195" y2="280" stroke="#B4B2A9" stroke-width="1.2"/>
+  <!-- ================= MLS1 : routeurs + PC3 + S3 ================= -->
+  <line class="lnk" x1="80" y1="80" x2="308" y2="220"/>
+  <g transform="translate(80,80)"><use href="#icon-router"/><text class="lbl" x="0" y="24" text-anchor="middle">R2</text></g>
 
-  <!-- Liens SW4 : R6, PC4, PC5, S4, S5 -->
-  <line x1="460" y1="392" x2="440" y2="460" stroke="#B4B2A9" stroke-width="1.2"/>
-  <line x1="420" y1="392" x2="390" y2="460" stroke="#B4B2A9" stroke-width="1.2"/>
-  <line x1="505" y1="370" x2="540" y2="370" stroke="#B4B2A9" stroke-width="1.2"/>
-  <line x1="505" y1="355" x2="540" y2="305" stroke="#B4B2A9" stroke-width="1.2"/>
-  <line x1="505" y1="378" x2="600" y2="423" stroke="#B4B2A9" stroke-width="1.2"/>
+  <line class="lnk" x1="80" y1="150" x2="304" y2="238"/>
+  <g transform="translate(80,150)"><use href="#icon-router"/><text class="lbl" x="0" y="24" text-anchor="middle">R1</text></g>
 
-  <!-- === SWITCHES === -->
-  <rect x="190" y="188" width="90" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="1"/>
-  <text class="th" x="235" y="207" text-anchor="middle" dominant-baseline="central">SW1</text>
-  <text class="ts" x="235" y="224" text-anchor="middle" dominant-baseline="central">3650-24PS</text>
+  <line class="lnk" x1="230" y1="70" x2="322" y2="210"/>
+  <g transform="translate(230,70)"><use href="#icon-pc"/><text class="lbl" x="0" y="24" text-anchor="middle">PC3</text></g>
 
-  <rect x="390" y="188" width="90" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="1"/>
-  <text class="th" x="435" y="207" text-anchor="middle" dominant-baseline="central">SW2</text>
-  <text class="ts" x="435" y="224" text-anchor="middle" dominant-baseline="central">3650-24PS</text>
+  <line class="lnk" x1="310" y1="60" x2="330" y2="208"/>
+  <g transform="translate(310,60)"><use href="#icon-server"/><text class="lbl" x="0" y="30" text-anchor="middle">S3</text></g>
 
-  <rect x="190" y="348" width="90" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="1"/>
-  <text class="th" x="235" y="367" text-anchor="middle" dominant-baseline="central">SW3</text>
-  <text class="ts" x="235" y="384" text-anchor="middle" dominant-baseline="central">3650-24PS</text>
+  <!-- ================= MLS2 : routeur du haut + PC1/PC2 + S1/S2 ================= -->
+  <line class="lnk" x1="640" y1="60" x2="640" y2="208"/>
+  <g transform="translate(640,60)"><use href="#icon-router"/><text class="lbl" x="0" y="24" text-anchor="middle">R3</text></g>
 
-  <rect x="390" y="348" width="90" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="1"/>
-  <text class="th" x="435" y="367" text-anchor="middle" dominant-baseline="central">SW4</text>
-  <text class="ts" x="435" y="384" text-anchor="middle" dominant-baseline="central">3650-24PS</text>
+  <line class="lnk" x1="770" y1="70" x2="660" y2="215"/>
+  <g transform="translate(770,70)"><use href="#icon-pc"/><text class="lbl" x="0" y="24" text-anchor="middle">PC1</text></g>
 
-  <!-- === ROUTEURS === -->
-  <rect x="68" y="194" width="52" height="32" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
-  <text class="tr" x="94" y="214" text-anchor="middle" dominant-baseline="central">R1</text>
+  <line class="lnk" x1="850" y1="110" x2="665" y2="230"/>
+  <g transform="translate(850,110)"><use href="#icon-pc"/><text class="lbl" x="0" y="24" text-anchor="middle">PC2</text></g>
 
-  <rect x="96" y="84" width="52" height="32" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
-  <text class="tr" x="122" y="104" text-anchor="middle" dominant-baseline="central">R2</text>
+  <line class="lnk" x1="790" y1="180" x2="662" y2="245"/>
+  <g transform="translate(790,180)"><use href="#icon-server"/><text class="lbl" x="0" y="30" text-anchor="middle">S1</text></g>
 
-  <rect x="68" y="354" width="52" height="32" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
-  <text class="tr" x="94" y="374" text-anchor="middle" dominant-baseline="central">R4</text>
+  <line class="lnk" x1="870" y1="220" x2="668" y2="235"/>
+  <g transform="translate(870,220)"><use href="#icon-server"/><text class="lbl" x="0" y="30" text-anchor="middle">S2</text></g>
 
-  <rect x="126" y="452" width="52" height="32" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
-  <text class="tr" x="152" y="472" text-anchor="middle" dominant-baseline="central">R5</text>
+  <!-- ================= MLS3 : routeurs + PC6 + S6 ================= -->
+  <line class="lnk" x1="80" y1="410" x2="304" y2="472"/>
+  <g transform="translate(80,410)"><use href="#icon-router"/><text class="lbl" x="0" y="24" text-anchor="middle">R4</text></g>
 
-  <rect x="596" y="98" width="52" height="32" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
-  <text class="tr" x="622" y="118" text-anchor="middle" dominant-baseline="central">R3</text>
+  <line class="lnk" x1="80" y1="480" x2="303" y2="488"/>
+  <g transform="translate(80,480)"><use href="#icon-router"/><text class="lbl" x="0" y="24" text-anchor="middle">R5</text></g>
 
-  <rect x="596" y="408" width="52" height="32" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
-  <text class="tr" x="622" y="428" text-anchor="middle" dominant-baseline="central">R6</text>
+  <line class="lnk" x1="150" y1="600" x2="316" y2="502"/>
+  <g transform="translate(150,600)"><use href="#icon-pc"/><text class="lbl" x="0" y="24" text-anchor="middle">PC6</text></g>
 
-  <!-- === SERVEURS === -->
-  <rect x="290" y="70" width="48" height="30" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
-  <text class="tsv" x="314" y="89" text-anchor="middle" dominant-baseline="central">S3</text>
+  <line class="lnk" x1="300" y1="620" x2="328" y2="502"/>
+  <g transform="translate(300,620)"><use href="#icon-server"/><text class="lbl" x="0" y="30" text-anchor="middle">S6</text></g>
 
-  <rect x="540" y="240" width="48" height="30" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
-  <text class="tsv" x="564" y="259" text-anchor="middle" dominant-baseline="central">S1</text>
+  <!-- ================= MLS4 : PC4/PC5 + S4/S5 + R6 ================= -->
+  <line class="lnk" x1="800" y1="380" x2="660" y2="470"/>
+  <g transform="translate(800,380)"><use href="#icon-pc"/><text class="lbl" x="0" y="24" text-anchor="middle">PC4</text></g>
 
-  <rect x="540" y="188" width="48" height="30" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
-  <text class="tsv" x="564" y="207" text-anchor="middle" dominant-baseline="central">S2</text>
+  <line class="lnk" x1="870" y1="420" x2="665" y2="485"/>
+  <g transform="translate(870,420)"><use href="#icon-pc"/><text class="lbl" x="0" y="24" text-anchor="middle">PC5</text></g>
 
-  <rect x="430" y="452" width="48" height="30" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
-  <text class="tsv" x="454" y="471" text-anchor="middle" dominant-baseline="central">S4</text>
+  <line class="lnk" x1="900" y1="470" x2="668" y2="490"/>
+  <g transform="translate(900,470)"><use href="#icon-router"/><text class="lbl" x="0" y="24" text-anchor="middle">R6</text></g>
 
-  <rect x="362" y="452" width="48" height="30" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
-  <text class="tsv" x="386" y="471" text-anchor="middle" dominant-baseline="central">S5</text>
+  <line class="lnk" x1="680" y1="620" x2="650" y2="502"/>
+  <g transform="translate(680,620)"><use href="#icon-server"/><text class="lbl" x="0" y="30" text-anchor="middle">S4</text></g>
 
-  <rect x="290" y="452" width="48" height="30" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
-  <text class="tsv" x="314" y="471" text-anchor="middle" dominant-baseline="central">S6</text>
+  <line class="lnk" x1="580" y1="620" x2="632" y2="502"/>
+  <g transform="translate(580,620)"><use href="#icon-server"/><text class="lbl" x="0" y="30" text-anchor="middle">S5</text></g>
 
-  <!-- === PCs === -->
-  <rect x="196" y="70" width="48" height="30" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
-  <text class="tpc" x="220" y="89" text-anchor="middle" dominant-baseline="central">PC3</text>
-
-  <rect x="380" y="70" width="48" height="30" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
-  <text class="tpc" x="404" y="89" text-anchor="middle" dominant-baseline="central">PC1</text>
-
-  <rect x="588" y="108" width="48" height="30" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
-  <text class="tpc" x="612" y="127" text-anchor="middle" dominant-baseline="central">PC2</text>
-
-  <rect x="588" y="342" width="48" height="30" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
-  <text class="tpc" x="612" y="361" text-anchor="middle" dominant-baseline="central">PC4</text>
-
-  <rect x="588" y="408" width="48" height="30" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
-  <text class="tpc" x="612" y="427" text-anchor="middle" dominant-baseline="central">PC5</text>
-
-  <rect x="140" y="504" width="48" height="30" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
-  <text class="tpc" x="164" y="523" text-anchor="middle" dominant-baseline="central">PC6</text>
-
-  <!-- Légende -->
-  <rect x="22" y="18" width="300" height="34" rx="6" fill="white" stroke="#D3D1C7" stroke-width="0.8"/>
-  <rect x="34" y="29" width="12" height="12" rx="2" fill="#534AB7"/>
-  <text class="leg" x="52" y="40">Switches</text>
-  <rect x="108" y="29" width="12" height="12" rx="2" fill="#0F6E56"/>
-  <text class="leg" x="126" y="40">Routeurs</text>
-  <rect x="192" y="29" width="12" height="12" rx="2" fill="#993C1D"/>
-  <text class="leg" x="210" y="40">Serveurs</text>
-  <rect x="268" y="29" width="12" height="12" rx="2" fill="#5F5E5A"/>
-  <text class="leg" x="285" y="40">PCs</text>
-
-  <!-- Titre -->
-  <text class="title" x="500" y="30" text-anchor="middle">Topologie réseau</text>
-  <text class="sub" x="500" y="46" text-anchor="middle">Packet Tracer – 4 switches / 6 routeurs</text>
+  <!-- ================= LÉGENDE ================= -->
+  <g transform="translate(30,660)">
+    <line x1="0" y1="0" x2="30" y2="0" class="core"/>
+    <text class="tag" x="36" y="4">Liaison cœur (switches, agrégée)</text>
+    <line x1="260" y1="0" x2="290" y2="0" class="lnk"/>
+    <text class="tag" x="296" y="4">Liaison d'accès</text>
+  </g>
 </svg>
