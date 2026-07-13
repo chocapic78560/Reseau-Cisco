@@ -68,24 +68,6 @@ Le réseau utilise **11 VLANs** au total :
 
 Chaque routeur se connecte au réseau de commutation via **un seul port trunk (FastEthernet0/0)** avec plusieurs sous-interfaces dot1Q — une pour son VLAN LAN local, une ou deux pour les VLANs de liens inter-routeurs.
 
-> 📸 *[Insérer ici une capture de `show vlan brief` sur l'un des switches]*
-
----
-
-## Routage — OSPFv3
-
-Les 6 routeurs exécutent **OSPFv3 en Area 0**, annonçant leurs préfixes LAN locaux et leurs préfixes de liens inter-routeurs. Chaque routeur est configuré avec :
-
-- Un **Router ID** unique au format IPv4 (ex : `1.1.1.1` pour R1)
-- **OSPFv3 activé par sous-interface** (`ipv6 ospf 1 area 0`)
-- **Aucune adresse IPv4** — environnement 100% IPv6
-
-Exemple de convention d'adressage sur les sous-interfaces (R2) :
-```
-interface FastEthernet0/0.2   → VLAN 2  → 2000:2001:112::2/64  (LAN local)
-interface FastEthernet0/0.12  → VLAN 12 → 2000:12XX:112::2/64  (lien R1-R2)
-interface FastEthernet0/0.23  → VLAN 23 → 2000:23XX:112::2/64  (lien R2-R3)
-```
 ```
 Switch#show vlan brief 
 
@@ -110,6 +92,23 @@ VLAN Name                             Status    Ports
 1003 token-ring-default               active    
 1004 fddinet-default                  active    
 1005 trnet-default                    active
+```
+
+---
+
+## Routage — OSPFv3
+
+Les 6 routeurs exécutent **OSPFv3 en Area 0**, annonçant leurs préfixes LAN locaux et leurs préfixes de liens inter-routeurs. Chaque routeur est configuré avec :
+
+- Un **Router ID** unique au format IPv4 (ex : `1.1.1.1` pour R1)
+- **OSPFv3 activé par sous-interface** (`ipv6 ospf 1 area 0`)
+- **Aucune adresse IPv4** — environnement 100% IPv6
+
+Exemple de convention d'adressage sur les sous-interfaces (R2) :
+```
+interface FastEthernet0/0.2   → VLAN 2  → 2000:2001:112::2/64  (LAN local)
+interface FastEthernet0/0.12  → VLAN 12 → 2000:12XX:112::2/64  (lien R1-R2)
+interface FastEthernet0/0.23  → VLAN 23 → 2000:23XX:112::2/64  (lien R2-R3)
 ```
 
 Ping du PC1 au PC6
