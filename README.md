@@ -6,7 +6,7 @@ Projet réseau réalisé en solo sous **Cisco Packet Tracer**, mettant en œuvre
 
 Ce projet simule un réseau d'entreprise entièrement opérationnel réunissant **6 routeurs**, **4 switches multicouches**, **6 PCs** et **6 serveurs**, tous communicant exclusivement en **IPv6** (aucun routage IPv4). Le réseau est segmenté en plusieurs VLANs, route dynamiquement via **OSPFv3**, et assure la redondance de commutation via le protocole **PVST+ Spanning Tree** avec élection contrôlée du Root Bridge et blocage de ports maîtrisé.
 
-> 📸 *[Insérer ici une capture d'écran de la topologie complète dans Packet Tracer]*
+![Topologie réseau](topologie.svg)
 
 ---
 
