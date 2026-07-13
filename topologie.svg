@@ -1,0 +1,138 @@
+<svg width="100%" viewBox="0 0 680 580" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Topologie réseau</title>
+  <desc>4 switches multicouche, 6 routeurs, 6 serveurs, 6 PCs</desc>
+  <defs>
+    <style>
+      .th { font-family: sans-serif; font-size: 11px; font-weight: 600; fill: #3C3489; }
+      .ts { font-family: sans-serif; font-size: 9px; fill: #534AB7; }
+      .tr { font-family: sans-serif; font-size: 11px; font-weight: 600; fill: #085041; }
+      .tsv { font-family: sans-serif; font-size: 11px; font-weight: 600; fill: #712B13; }
+      .tpc { font-family: sans-serif; font-size: 11px; font-weight: 600; fill: #444441; }
+      .leg { font-family: sans-serif; font-size: 11px; fill: #444441; }
+      .title { font-family: sans-serif; font-size: 13px; font-weight: 600; fill: #2C2C2A; }
+      .sub { font-family: sans-serif; font-size: 10px; fill: #888780; }
+    </style>
+  </defs>
+
+  <!-- Fond carte -->
+  <rect x="0" y="0" width="680" height="580" fill="#F8F7F3" rx="0"/>
+
+  <!-- Backbone links entre les 4 switches -->
+  <line x1="280" y1="210" x2="390" y2="210" stroke="#534AB7" stroke-width="2.5" stroke-dasharray="6 3"/>
+  <line x1="280" y1="370" x2="390" y2="370" stroke="#534AB7" stroke-width="2.5" stroke-dasharray="6 3"/>
+  <line x1="235" y1="232" x2="235" y2="348" stroke="#534AB7" stroke-width="2.5" stroke-dasharray="6 3"/>
+  <line x1="435" y1="232" x2="435" y2="348" stroke="#534AB7" stroke-width="2.5" stroke-dasharray="6 3"/>
+
+  <!-- Liens SW1 -->
+  <line x1="190" y1="210" x2="120" y2="210" stroke="#B4B2A9" stroke-width="1.2"/>
+  <line x1="210" y1="192" x2="148" y2="110" stroke="#B4B2A9" stroke-width="1.2"/>
+  <line x1="250" y1="192" x2="230" y2="108" stroke="#B4B2A9" stroke-width="1.2"/>
+  <line x1="265" y1="192" x2="302" y2="108" stroke="#B4B2A9" stroke-width="1.2"/>
+
+  <!-- Liens SW2 -->
+  <line x1="480" y1="192" x2="460" y2="108" stroke="#B4B2A9" stroke-width="1.2"/>
+  <line x1="460" y1="192" x2="390" y2="108" stroke="#B4B2A9" stroke-width="1.2"/>
+  <line x1="505" y1="210" x2="540" y2="170" stroke="#B4B2A9" stroke-width="1.2"/>
+  <line x1="505" y1="228" x2="540" y2="270" stroke="#B4B2A9" stroke-width="1.2"/>
+
+  <!-- Liens SW3 -->
+  <line x1="190" y1="370" x2="120" y2="370" stroke="#B4B2A9" stroke-width="1.2"/>
+  <line x1="205" y1="388" x2="170" y2="460" stroke="#B4B2A9" stroke-width="1.2"/>
+  <line x1="255" y1="392" x2="302" y2="460" stroke="#B4B2A9" stroke-width="1.2"/>
+  <line x1="235" y1="348" x2="195" y2="280" stroke="#B4B2A9" stroke-width="1.2"/>
+
+  <!-- Liens SW4 -->
+  <line x1="460" y1="392" x2="440" y2="460" stroke="#B4B2A9" stroke-width="1.2"/>
+  <line x1="420" y1="392" x2="390" y2="460" stroke="#B4B2A9" stroke-width="1.2"/>
+  <line x1="505" y1="370" x2="540" y2="370" stroke="#B4B2A9" stroke-width="1.2"/>
+  <line x1="505" y1="355" x2="540" y2="305" stroke="#B4B2A9" stroke-width="1.2"/>
+
+  <!-- === SWITCHES === -->
+  <rect x="190" y="188" width="90" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="1"/>
+  <text class="th" x="235" y="207" text-anchor="middle" dominant-baseline="central">SW1</text>
+  <text class="ts" x="235" y="224" text-anchor="middle" dominant-baseline="central">3650-24PS</text>
+
+  <rect x="390" y="188" width="90" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="1"/>
+  <text class="th" x="435" y="207" text-anchor="middle" dominant-baseline="central">SW2</text>
+  <text class="ts" x="435" y="224" text-anchor="middle" dominant-baseline="central">3650-24PS</text>
+
+  <rect x="190" y="348" width="90" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="1"/>
+  <text class="th" x="235" y="367" text-anchor="middle" dominant-baseline="central">SW3</text>
+  <text class="ts" x="235" y="384" text-anchor="middle" dominant-baseline="central">3650-24PS</text>
+
+  <rect x="390" y="348" width="90" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="1"/>
+  <text class="th" x="435" y="367" text-anchor="middle" dominant-baseline="central">SW4</text>
+  <text class="ts" x="435" y="384" text-anchor="middle" dominant-baseline="central">3650-24PS</text>
+
+  <!-- === ROUTEURS === -->
+  <rect x="68" y="194" width="52" height="32" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+  <text class="tr" x="94" y="214" text-anchor="middle" dominant-baseline="central">R1</text>
+
+  <rect x="96" y="84" width="52" height="32" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+  <text class="tr" x="122" y="104" text-anchor="middle" dominant-baseline="central">R2</text>
+
+  <rect x="68" y="354" width="52" height="32" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+  <text class="tr" x="94" y="374" text-anchor="middle" dominant-baseline="central">R4</text>
+
+  <rect x="126" y="452" width="52" height="32" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+  <text class="tr" x="152" y="472" text-anchor="middle" dominant-baseline="central">R5</text>
+
+  <rect x="540" y="152" width="52" height="32" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+  <text class="tr" x="566" y="172" text-anchor="middle" dominant-baseline="central">R3</text>
+
+  <rect x="540" y="280" width="52" height="32" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+  <text class="tr" x="566" y="300" text-anchor="middle" dominant-baseline="central">R6</text>
+
+  <!-- === SERVEURS === -->
+  <rect x="290" y="70" width="48" height="30" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
+  <text class="tsv" x="314" y="89" text-anchor="middle" dominant-baseline="central">S3</text>
+
+  <rect x="540" y="240" width="48" height="30" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
+  <text class="tsv" x="564" y="259" text-anchor="middle" dominant-baseline="central">S1</text>
+
+  <rect x="540" y="188" width="48" height="30" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
+  <text class="tsv" x="564" y="207" text-anchor="middle" dominant-baseline="central">S2</text>
+
+  <rect x="430" y="452" width="48" height="30" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
+  <text class="tsv" x="454" y="471" text-anchor="middle" dominant-baseline="central">S4</text>
+
+  <rect x="362" y="452" width="48" height="30" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
+  <text class="tsv" x="386" y="471" text-anchor="middle" dominant-baseline="central">S5</text>
+
+  <rect x="290" y="452" width="48" height="30" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
+  <text class="tsv" x="314" y="471" text-anchor="middle" dominant-baseline="central">S6</text>
+
+  <!-- === PCs === -->
+  <rect x="196" y="70" width="48" height="30" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
+  <text class="tpc" x="220" y="89" text-anchor="middle" dominant-baseline="central">PC3</text>
+
+  <rect x="380" y="70" width="48" height="30" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
+  <text class="tpc" x="404" y="89" text-anchor="middle" dominant-baseline="central">PC1</text>
+
+  <rect x="588" y="108" width="48" height="30" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
+  <text class="tpc" x="612" y="127" text-anchor="middle" dominant-baseline="central">PC2</text>
+
+  <rect x="588" y="342" width="48" height="30" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
+  <text class="tpc" x="612" y="361" text-anchor="middle" dominant-baseline="central">PC4</text>
+
+  <rect x="588" y="408" width="48" height="30" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
+  <text class="tpc" x="612" y="427" text-anchor="middle" dominant-baseline="central">PC5</text>
+
+  <rect x="140" y="504" width="48" height="30" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
+  <text class="tpc" x="164" y="523" text-anchor="middle" dominant-baseline="central">PC6</text>
+
+  <!-- Légende -->
+  <rect x="22" y="18" width="300" height="34" rx="6" fill="white" stroke="#D3D1C7" stroke-width="0.8"/>
+  <rect x="34" y="29" width="12" height="12" rx="2" fill="#534AB7"/>
+  <text class="leg" x="52" y="40">Switches</text>
+  <rect x="108" y="29" width="12" height="12" rx="2" fill="#0F6E56"/>
+  <text class="leg" x="126" y="40">Routeurs</text>
+  <rect x="192" y="29" width="12" height="12" rx="2" fill="#993C1D"/>
+  <text class="leg" x="210" y="40">Serveurs</text>
+  <rect x="268" y="29" width="12" height="12" rx="2" fill="#5F5E5A"/>
+  <text class="leg" x="285" y="40">PCs</text>
+
+  <!-- Titre -->
+  <text class="title" x="500" y="30" text-anchor="middle">Topologie réseau</text>
+  <text class="sub" x="500" y="46" text-anchor="middle">Packet Tracer – 4 switches / 6 routeurs</text>
+</svg>
