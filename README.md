@@ -429,7 +429,7 @@ Gi1/0/24         Altn BLK 4         128.24   P2p
 | Serveur | Service | Détails |
 |---|---|---|
 | S1 | DNS | Résolution de noms pour le réseau |
-| S4 | SMTP / POP3 | Serveur mail — domaine `[tonNom].com` |
+| S4 | SMTP / POP3 | Serveur mail — domaine `matteogalus.com` |
 | S5 | FTP | Serveur de transfert de fichiers |
 | S6 | HTTP / HTTPS | Serveur web |
 
