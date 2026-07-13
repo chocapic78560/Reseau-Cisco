@@ -6,32 +6,18 @@ Projet réseau réalisé en solo sous **Cisco Packet Tracer**, mettant en œuvre
 
 Ce projet simule un réseau d'entreprise entièrement opérationnel réunissant **6 routeurs**, **4 switches multicouches**, **6 PCs** et **6 serveurs**, tous communicant exclusivement en **IPv6** (aucun routage IPv4). Le réseau est segmenté en plusieurs VLANs, route dynamiquement via **OSPFv3**, et assure la redondance de commutation via le protocole **PVST+ Spanning Tree** avec élection contrôlée du Root Bridge et blocage de ports maîtrisé.
 
-![Topologie réseau](topologie.svg)
-
 ---
 
 ## Topologie
 
 La topologie physique repose sur un **anneau carré** : 4 switches multicouches interconnectés par des doubles liens redondants, formant le cœur du réseau de commutation. Chaque routeur se connecte à ce cœur via des sous-interfaces trunk (Router-on-a-Stick), et chaque switch dessert un groupe d'équipements terminaux.
 
-```
-        R1      R2      R3
-         \      |      /
-          \     |     /
-        [Switch1]---[Switch2]
-              |   X   |
-        [Switch3]---[Switch4]
-          /     |     \
-         /      |      \
-        R4      R5      R6
-```
+![Topologie réseau](topologie.svg)
 
 - **6 Routeurs** (Cisco 2811) : R1 à R6, chacun avec plusieurs sous-interfaces trunk dot1Q
 - **4 Switches multicouches** (Cisco 3560-24PS) : Switch1 à Switch4
 - **6 PCs** : PC1 à PC6, un par segment routeur
 - **6 Serveurs** : S1 à S6, un par segment routeur
-
-> 📸 *[Insérer ici le schéma détaillé de la topologie Packet Tracer]*
 
 ---
 
@@ -437,7 +423,3 @@ Gi1/0/24         Altn BLK 4         128.24   P2p
 Deux comptes utilisateurs sont configurés sur le serveur SMTP (S4) :
 - **User1** / `pass1` → configuré sur le client mail d'un PC (Desktop → E Mail)
 - **User2** / `pass2` → configuré sur un second PC client
-
-> 📸 *[Insérer ici une capture d'un envoi/réception de mail réussi entre User1 et User2]*
-
-> 📸 *[Insérer ici une capture d'un accès HTTP réussi depuis un PC vers le serveur web S6]*
